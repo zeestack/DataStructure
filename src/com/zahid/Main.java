@@ -4,9 +4,33 @@ package com.zahid;
 import java.util.ArrayList;
 
 public class Main {
+
     public static void main(String[] args) {
-        dynamicArrays();
-        ArrayExcercise();
+        LinkedListDemo();
+    }
+
+    public static void LinkedListDemo() {
+        var list = new LinkedList();
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+        list.addFirst(100);
+
+
+        System.out.println(list);
+        System.out.println("Size : " + list.size());
+
+        System.out.println("Last Item:" + list.getLast());
+        System.out.println("First Item:" + list.getFirst());
+
+        int find = 20;
+        System.out.println("contains " + find + ":" + list.contains(find) + " at Index: " + list.indexOf(find));
+
+
+        //list.reverse();
+
+        System.out.println("To Array: " + list);
+
     }
 
     public static void dynamicArrays() {
