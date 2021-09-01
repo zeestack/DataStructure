@@ -6,10 +6,22 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        LinkedListDemo();
+
+        stackDemo();
     }
 
-    public static void LinkedListDemo() {
+    public static void stackDemo() {
+        Stack stack = new Stack(5);
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        
+        System.out.println(stack.isEmpty());
+        System.out.println("Peek:" + stack.peek() + "Pop:" + stack.pop());
+        System.out.println(stack);
+    }
+
+    public static void linkedListDemo() {
         var list = new LinkedList();
         list.addLast(10);
         list.addLast(20);
@@ -27,9 +39,7 @@ public class Main {
         System.out.println("contains " + find + ":" + list.contains(find) + " at Index: " + list.indexOf(find));
 
 
-        //list.reverse();
-
-        System.out.println("To Array: " + list);
+        System.out.println(list.getKthFromTheEnd(0));
 
     }
 

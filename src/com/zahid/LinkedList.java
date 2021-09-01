@@ -1,9 +1,11 @@
 package com.zahid;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
     private class Node {
+
         private int value;
         private Node next;
 
@@ -16,7 +18,7 @@ public class LinkedList {
     private Node last;
     private int size;
 
-    LinkedList() {
+    public LinkedList() {
         first = last = null;
         size = 0;
     }
@@ -109,33 +111,38 @@ public class LinkedList {
         return arr;
     }
 
-//    public void reverse() {
-//
-//        //[10 <- 20
-//        // current = first
-//        // left = getPrevious();
-//        // right = current.next;
-//
-//        //right.next = left;
-//        //[10 -> 20 -> 30]
-//        var node = first.next;
-//
-//        Node pleft = first;
-//        while (node != null) {
-//
-//            var left = pleft;
-//            var right = node.next;
-//
-//            node.next = left;
-//
-//            pleft = node;
-//
-//            node = right;
-//
-//
-//        }
-//
-//    }
+    public void reverse() {
+        Node current = first;
+        Node previous = null;
+        while (current != null) {
+            var next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        last = first;
+        first = previous;
+    }
+
+    public int getKthFromTheEnd(int k) {
+
+        if (isEmpty()) throw new IllegalStateException();
+        if (k < 0 || k > size) throw new IllegalArgumentException();
+
+        var a = first;
+        var b = first;
+        for (int i = 0; i < k; i++) {
+            if (b == null) throw new IllegalArgumentException();
+            b = b.next;
+        }
+
+        while (b != last) {
+            a = a.next;
+            b = b.next;
+        }
+
+        return a.value;
+    }
 
 
     private boolean isEmpty() {
@@ -152,15 +159,10 @@ public class LinkedList {
         return null;
     }
 
+
     @Override
     public String toString() {
-        String str = "[";
-        var node = first;
-        while (node != null) {
-            str = str + node.value + ",";
-            node = node.next;
-        }
-        return str.length() > 1 ? str.substring(0, str.length() - 1) + "]" : str + "]";
+        return Arrays.toString(this.toArray());
     }
 
 }
