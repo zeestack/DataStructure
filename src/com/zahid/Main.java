@@ -7,7 +7,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        stackDemo();
+        var check = new Expression();
+        String exp = ">{([1+2])}>";
+        System.out.println(check.isBalanced(exp));
+
     }
 
     public static void stackDemo() {
@@ -15,7 +18,7 @@ public class Main {
         stack.push(10);
         stack.push(20);
         stack.push(30);
-        
+
         System.out.println(stack.isEmpty());
         System.out.println("Peek:" + stack.peek() + "Pop:" + stack.pop());
         System.out.println(stack);

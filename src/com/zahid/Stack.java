@@ -3,11 +3,11 @@ package com.zahid;
 import java.util.Arrays;
 
 public class Stack {
-    private int[] stack;
+    private final int[] stack;
     private int count;
 
     public Stack(int size) {
-        stack = new int[size];
+        this.stack = new int[size];
         this.count = 0;
     }
 
