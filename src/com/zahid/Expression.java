@@ -13,27 +13,25 @@ public class Expression {
         Stack<Character> stack = new Stack<>();
 
         for (Character ch : expression.toCharArray()) {
-
+            
             if (isOpeningBracket(ch))
                 stack.push(ch);
 
             if (isClosingBracket(ch)) {
                 if (stack.empty()) return false;
 
-                var top = stack.pop();
-                if (!isMatchingBrackets(top, ch))
+                Character left = stack.pop();
+                if (!isMatchingBrackets(left, ch))
                     return false;
-
             }
         }
-
         return stack.empty();
     }
 
     private boolean isOpeningBracket(Character ch) {
         return openingBrackets.contains(ch);
     }
-    
+
     private boolean isClosingBracket(Character ch) {
         return closingBrackets.contains(ch);
     }

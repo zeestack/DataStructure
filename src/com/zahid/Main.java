@@ -7,10 +7,42 @@ public class Main {
 
     public static void main(String[] args) {
 
+        minStackDemo();
+
+    }
+
+    public static void minStackDemo() {
+        var stack = new MinStack();
+        stack.push(5);
+        stack.push(100);
+
+        stack.push(200);
+        stack.push(1000);
+        stack.push(2000);
+        stack.push(3000);
+        stack.push(4000);
+        stack.push(3000);
+        stack.push(3000);
+        System.out.println(stack);
+        System.out.println("Minimum: " + stack.min() + ", Maximum:" + stack.max());
+
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+
+        System.out.println(stack);
+        System.out.println("Minimum: " + stack.min() + ", Maximum:" + stack.max());
+
+
+    }
+
+    public static void balanceBracketDemo() {
         var check = new Expression();
         String exp = ">{([1+2])}>";
         System.out.println(check.isBalanced(exp));
-
     }
 
     public static void stackDemo() {

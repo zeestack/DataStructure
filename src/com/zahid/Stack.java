@@ -6,6 +6,7 @@ public class Stack {
     private final int[] stack;
     private int count;
 
+
     public Stack(int size) {
         this.stack = new int[size];
         this.count = 0;
@@ -13,9 +14,9 @@ public class Stack {
 
     public void push(int item) {
         if (isFull()) throw new StackOverflowError();
-
         stack[count++] = item;
     }
+
 
     public int pop() {
         if (isEmpty()) throw new IllegalStateException();
@@ -24,7 +25,6 @@ public class Stack {
 
     public int peek() {
         if (isEmpty()) throw new IllegalStateException();
-
         return stack[count - 1];
     }
 
