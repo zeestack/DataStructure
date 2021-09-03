@@ -45,7 +45,7 @@ public class LinkedList {
         size++;
     }
 
-    public Boolean contains(int value) {
+    public boolean contains(int value) {
         return indexOf(value) != -1;
     }
 
@@ -143,7 +143,6 @@ public class LinkedList {
 
         return a.value;
     }
-
 
     private boolean isEmpty() {
         return first == null;
