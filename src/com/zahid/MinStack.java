@@ -38,20 +38,28 @@ public class MinStack {
         return maxStack.peek();
     }
 
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
+
+    public int peek() {
+        if (isEmpty()) throw new IllegalStateException();
+        return stack.peek();
+    }
+
+    @Override
+    public String toString() {
+        return stack.toString();
+    }
+
+    //private methods with - implementation details
+
     private void pushMin(int item) {
         if (!minStack.isEmpty()) {
             var top = minStack.peek();
             if (item <= top)
                 minStack.push(item);
         } else minStack.push(item);
-    }
-
-    private void pushMax(int item) {
-        if (!maxStack.isEmpty()) {
-            var top = maxStack.peek();
-            if (item >= top)
-                maxStack.push(item);
-        } else maxStack.push(item);
     }
 
     private void popMin() {
@@ -64,6 +72,14 @@ public class MinStack {
                 minStack.pop();
             }
         }
+    }
+
+    private void pushMax(int item) {
+        if (!maxStack.isEmpty()) {
+            var top = maxStack.peek();
+            if (item >= top)
+                maxStack.push(item);
+        } else maxStack.push(item);
     }
 
     private void popMax() {
@@ -80,8 +96,5 @@ public class MinStack {
 
     }
 
-    @Override
-    public String toString() {
-        return stack.toString();
-    }
+
 }
