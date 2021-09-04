@@ -1,14 +1,28 @@
 package com.zahid;
 
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Queue;
 
 public class Main {
 
     public static void main(String[] args) {
+        chracterFinderDemo();
+    }
 
-        minStackDemo();
+    public static void chracterFinderDemo() {
+        ChracterFinder n = new ChracterFinder();
+        System.out.println(n.findNonRepeatedChar("a green apple"));
+    }
 
+    public static void queueDemo() {
+        Queue<Integer> que = new ArrayDeque<>();
+        que.add(1);
+        que.add(2);
+        que.add(3);
+        QueClass.reverseQueue(que);
+        System.out.println(que);
     }
 
     public static void minStackDemo() {
