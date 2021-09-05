@@ -13,7 +13,8 @@ public class Main {
 
     public static void chracterFinderDemo() {
         ChracterFinder n = new ChracterFinder();
-        System.out.println(n.findNonRepeatedChar("a green apple"));
+        System.out.println("First non-repeated character: " + n.findFirstNonRepeatedChar("a green apple"));
+        System.out.println("First repeated character: " + n.findFirstRepeatedChar("a green apple"));
     }
 
     public static void queueDemo() {
