@@ -11,25 +11,16 @@ public class Main {
         chracterFinderDemo();
     }
 
-<<<<<<< HEAD
-        ArrayQueue queue = new ArrayQueue(5);
-        queue.enqueue(10);
-        queue.enqueue(20);
-        queue.enqueue(30);
-        queue.enqueue(40);
-        queue.enqueue(50);
 
-        System.out.println(queue);
-
-        queue.dequeue();
-        queue.enqueue(60);
-        queue.dequeue();
-        System.out.println(queue);
-=======
     public static void chracterFinderDemo() {
-        ChracterFinder n = new ChracterFinder();
+        Finder n = new Finder();
         System.out.println("First non-repeated character: " + n.findFirstNonRepeatedChar("a green apple"));
         System.out.println("First repeated character: " + n.findFirstRepeatedChar("a green apple"));
+
+        int[] input = new int[]{1, 7, 5, 9, 12, 3};
+        System.out.println("Most Repeated Number is: " + n.mostFrequent(input));
+
+        System.out.println(n.countPairsWithDiff(input, 2));
     }
 
     public static void queueDemo() {
@@ -39,7 +30,6 @@ public class Main {
         que.add(3);
         QueClass.reverseQueue(que);
         System.out.println(que);
->>>>>>> b8cfee1ebdf4558366c5d0dca329b6bde8586e64
     }
 
     public static void minStackDemo() {
