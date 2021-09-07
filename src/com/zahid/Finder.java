@@ -67,8 +67,7 @@ public class Finder {
 
         return Character.MIN_VALUE;
     }
-
-
+    
     public char findFirstNonRepeatedChar(String str) {
         Map<Character, Integer> map = new HashMap<>();
 

@@ -1,6 +1,7 @@
 package com.zahid;
 
 public class AVLTree {
+
     private class AVLNode {
         private int value;
         private int height;
@@ -23,7 +24,11 @@ public class AVLTree {
         this.root = insert(this.root, value);
     }
 
-    public AVLNode insert(AVLNode root, int value) {
+    public void print() {
+        System.out.println(root);
+    }
+
+    private AVLNode insert(AVLNode root, int value) {
         if (root == null)
             return new AVLNode(value);
 
@@ -32,25 +37,31 @@ public class AVLTree {
         else
             root.rightChild = insert(root.rightChild, value);
 
-        var leftHeight = height(root.leftChild);
-        var rightHeight = height(root.rightChild);
+        root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
 
-        root.height = Math.max(leftHeight, rightHeight) + 1;
+        //leftheavy ==> right rotation
+        if (isLeftHeavy(root)) System.out.println("left heavy at node:" + root.value);
 
-        var balanceFactor = leftHeight - rightHeight;
-        //balanceFactor > 1 - left heavy
-        //balanceFactor < -1 - right heavy
-        if (balanceFactor > 1) System.out.println("left heavy at node:" + root.value);
-        if (balanceFactor < -1) System.out.println("Right heavy at node:" + root.value);
+        //rightheavy ==> left rotation
+        if (isRightHeavy(root)) System.out.println("Right heavy at node:" + root.value);
 
         return root;
+    }
+
+    private boolean isLeftHeavy(AVLNode node) {
+        return balanceFactor(node) > 1;
+    }
+
+    private boolean isRightHeavy(AVLNode node) {
+        return balanceFactor(node) < -1;
+    }
+
+    private int balanceFactor(AVLNode node) {
+        return node == null ? -1 : height(node.leftChild) - height(node.rightChild);
     }
 
     private int height(AVLNode node) {
         return node == null ? -1 : node.height;
     }
 
-    public void print() {
-        System.out.println(root);
-    }
 }
