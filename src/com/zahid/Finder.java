@@ -3,29 +3,37 @@ package com.zahid;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Finder {
 
-    private class Pair {
-        private int x;
-        private int y;
+    public int[] twoSum(int[] input, int targetSum) {
+        //a + b = targetSum
+        //b = sum - a; or a = targetSum - b;
+        Map<Integer, Integer> map = new HashMap<>();
 
-        Pair(int x, int y) {
-            this.x = x;
-            this.y = y;
+        for (int i = 0; i < input.length; i++) {
+            var b = targetSum - input[i];
+            if (map.containsKey(b))
+                return new int[]{map.get(b), i};
+            map.put(input[i], i);
         }
 
-        public boolean isEqual(Pair y) {
-            return ((this.x == y.x || this.x == y.y) && (this.y == y.y || this.y == y.x));
-        }
+        return null;
     }
 
     public int countPairsWithDiff(int[] input, int k) {
+        //a-b = k  --> a & b belongs to array
+        //b = k + a --> given the value "a" b should also be in array?
 
+        Set<Integer> set = new HashSet<>();
+        for (var number : input) set.add(number);
         int count = 0;
-        for (var x : input) {
-            for (var y : input) {
-                if (x - y == k) count++;
+        for (var number : set) {
+            var b = number + k;
+            if (set.contains(b)) {
+                System.out.println("(" + number + "," + b + ")");
+                count++;
             }
         }
 

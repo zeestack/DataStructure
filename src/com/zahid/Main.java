@@ -3,24 +3,38 @@ package com.zahid;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Queue;
 
 public class Main {
 
     public static void main(String[] args) {
-        chracterFinderDemo();
+        AVLTree tree = new AVLTree();
+        tree.insert(10);
+        tree.insert(20);
+        tree.insert(30);
+
+
+        tree.print();
+        System.out.println("AVL Tree Demo");
     }
 
 
-    public static void chracterFinderDemo() {
+    public static void finderDemo() {
         Finder n = new Finder();
         System.out.println("First non-repeated character: " + n.findFirstNonRepeatedChar("a green apple"));
         System.out.println("First repeated character: " + n.findFirstRepeatedChar("a green apple"));
 
-        int[] input = new int[]{1, 7, 5, 9, 12, 3};
+        int[] input = new int[]{1, 7, 5, 9, 2, 2, 3, 5, 12, 3};
         System.out.println("Most Repeated Number is: " + n.mostFrequent(input));
 
-        System.out.println(n.countPairsWithDiff(input, 2));
+        System.out.println(n.countPairsWithDiff(input, 4));
+
+        input = new int[]{2, 7, 11, 15};
+
+        System.out.println("TwoSum: " + Arrays.toString(n.twoSum(input, 31)));
+
+
     }
 
     public static void queueDemo() {
