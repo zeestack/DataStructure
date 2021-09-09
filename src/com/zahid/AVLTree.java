@@ -37,15 +37,44 @@ public class AVLTree {
         else
             root.rightChild = insert(root.rightChild, value);
 
-        root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
+        setNodeHeight(root);
 
-        //leftheavy ==> right rotation
-        if (isLeftHeavy(root)) System.out.println("left heavy at node:" + root.value);
+        return balance(root);
+    }
 
-        //rightheavy ==> left rotation
-        if (isRightHeavy(root)) System.out.println("Right heavy at node:" + root.value);
-
+    private AVLNode balance(AVLNode root) {
+        if (isLeftHeavy(root)) {
+            if (balanceFactor(root.leftChild) < 0)
+                root.leftChild = rotateLeft(root.leftChild);
+            return rotateRight(root);
+        } else if (isRightHeavy(root)) {
+            if (balanceFactor(root.rightChild) > 0)
+                root.rightChild = rotateRight(root.rightChild);
+            return rotateLeft(root);
+        }
         return root;
+    }
+
+    private AVLNode rotateLeft(AVLNode root) {
+        var newRoot = root.rightChild;
+        root.rightChild = newRoot.leftChild;
+        newRoot.leftChild = root;
+        setNodeHeight(root);
+        setNodeHeight(newRoot);
+        return newRoot;
+    }
+
+    private AVLNode rotateRight(AVLNode root) {
+        var newRoot = root.leftChild;
+        root.leftChild = newRoot.rightChild;
+        newRoot.rightChild = root;
+        setNodeHeight(root);
+        setNodeHeight(newRoot);
+        return newRoot;
+    }
+
+    private void setNodeHeight(AVLNode node) {
+        node.height = node == null ? 0 : Math.max(height(node.leftChild), height(node.rightChild)) + 1;
     }
 
     private boolean isLeftHeavy(AVLNode node) {
