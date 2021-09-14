@@ -28,6 +28,18 @@ public class AVLTree {
         System.out.println(root);
     }
 
+    public boolean isBalanced() {
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(AVLNode node) {
+
+        if (node == null)
+            return true;
+
+        return Math.abs(balanceFactor(node)) <= 1 && isBalanced(node.rightChild) && isBalanced(node.leftChild);
+    }
+
     private AVLNode insert(AVLNode root, int value) {
         if (root == null)
             return new AVLNode(value);
