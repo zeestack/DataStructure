@@ -9,16 +9,21 @@ import java.util.Queue;
 public class Main {
 
     public static void main(String[] args) {
+
+        var trie = new Trie();
+        trie.insert("zahid");
+        System.out.println("Trie");
+    }
+
+    public static void avlTreeDemo() {
         AVLTree tree = new AVLTree();
         tree.insert(10);
         tree.insert(20);
         tree.insert(30);
 
-
         tree.print();
         System.out.println("AVL Tree Demo");
     }
-
 
     public static void finderDemo() {
         Finder n = new Finder();
