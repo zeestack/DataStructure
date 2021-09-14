@@ -12,9 +12,25 @@ public class Main {
 
 
         var trie = new Trie();
-        trie.insert("zahid");
-        System.out.println("Trie");
-        
+        trie.insert("canada");
+        trie.insert("can");
+        trie.insert("pakistan");
+        trie.insert("canabus");
+        trie.insert("cando");
+        trie.insert("canfind");
+        trie.insert("pak");
+        trie.insert("pakis");
+        trie.insert("paki");
+
+
+        System.out.println(trie.contains("canada"));
+        System.out.println(trie.contains("can"));
+
+        System.out.println(trie.contains("pakistan"));
+        System.out.println(trie.contains("pak"));
+
+        System.out.println(trie.search("p"));
+
     }
 
     public static void avlTreeDemo() {
