@@ -9,14 +9,12 @@ import java.util.Queue;
 public class Main {
 
     public static void main(String[] args) {
-<<<<<<< HEAD
+
 
         var trie = new Trie();
         trie.insert("zahid");
         System.out.println("Trie");
-=======
-        avlTreeDemo();
->>>>>>> 0764a77dc3118c7ed74a9e7a1f05d96d3bf0109f
+        
     }
 
     public static void avlTreeDemo() {
@@ -24,12 +22,8 @@ public class Main {
         tree.insert(10);
         tree.insert(20);
         tree.insert(30);
-<<<<<<< HEAD
-
-=======
         tree.insert(40);
         tree.insert(50);
->>>>>>> 0764a77dc3118c7ed74a9e7a1f05d96d3bf0109f
         tree.print();
         System.out.println(tree.isBalanced());
     }
