@@ -9,16 +9,19 @@ import java.util.Queue;
 public class Main {
 
     public static void main(String[] args) {
+        avlTreeDemo();
+    }
+
+    public static void avlTreeDemo() {
         AVLTree tree = new AVLTree();
         tree.insert(10);
         tree.insert(20);
         tree.insert(30);
-
-
+        tree.insert(40);
+        tree.insert(50);
         tree.print();
-        System.out.println("AVL Tree Demo");
+        System.out.println(tree.isBalanced());
     }
-
 
     public static void finderDemo() {
         Finder n = new Finder();
