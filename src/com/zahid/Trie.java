@@ -93,7 +93,7 @@ public class Trie {
         var character = word.charAt(index);
         var child = root.getChild(character);
 
-        if (root == null) {
+        if (child == null) {
             return;
         }
 
@@ -105,7 +105,7 @@ public class Trie {
     }
 
     public List<String> search(String prefix) {
-        
+
         var words = new ArrayList<String>();
 
         var lastNode = findLastNode(prefix);

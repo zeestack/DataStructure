@@ -22,6 +22,7 @@ public class Main {
         trie.insert("pakis");
         trie.insert("paki");
 
+        trie.remove("paki");
 
         System.out.println(trie.contains("canada"));
         System.out.println(trie.contains("can"));
