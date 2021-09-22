@@ -10,7 +10,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        trieDemo();
+    }
 
+    private static void trieDemo() {
         var trie = new Trie();
         trie.insert("canada");
         trie.insert("can");
@@ -21,17 +24,10 @@ public class Main {
         trie.insert("pak");
         trie.insert("pakis");
         trie.insert("paki");
-
         trie.remove("paki");
 
-        System.out.println(trie.contains("canada"));
-        System.out.println(trie.contains("can"));
-
-        System.out.println(trie.contains("pakistan"));
-        System.out.println(trie.contains("pak"));
-
-        System.out.println(trie.search("p"));
-
+       
+        System.out.println(trie.search("paki"));
     }
 
     public static void avlTreeDemo() {
