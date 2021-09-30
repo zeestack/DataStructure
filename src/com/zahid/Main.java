@@ -9,8 +9,22 @@ import java.util.Queue;
 public class Main {
 
     public static void main(String[] args) {
+        graphDemo();
+    }
 
-        trieDemo();
+    private static void graphDemo() {
+        var graph = new Graph();
+
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+
+        graph.addEdge("A", "C");
+        graph.addEdge("C", "B");
+        graph.addEdge("A", "B");
+
+
+        graph.print();
     }
 
     private static void trieDemo() {
@@ -26,7 +40,7 @@ public class Main {
         trie.insert("paki");
         trie.remove("paki");
 
-       
+
         System.out.println(trie.search("paki"));
     }
 
