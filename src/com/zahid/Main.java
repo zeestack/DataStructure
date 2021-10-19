@@ -9,7 +9,11 @@ import java.util.Queue;
 public class Main {
 
     public static void main(String[] args) {
-        graphDemo();
+
+        var finder = new Finder();
+
+        System.out.println(finder.getLongestNonRepeatedStringLength("abc"));
+
     }
 
     private static void graphDemo() {

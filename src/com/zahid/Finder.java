@@ -67,7 +67,7 @@ public class Finder {
 
         return Character.MIN_VALUE;
     }
-    
+
     public char findFirstNonRepeatedChar(String str) {
         Map<Character, Integer> map = new HashMap<>();
 
@@ -84,4 +84,28 @@ public class Finder {
         return Character.MIN_VALUE;
     }
 
+    public int getLongestNonRepeatedStringLength(String str) {
+
+        if (str == null) throw new IllegalArgumentException();
+
+        int firstPtr = 0;
+        int secPtr = 0;
+
+        var set = new HashSet<Character>();
+
+        for (char ch : str.toCharArray()) {
+
+            if (!set.contains(ch))
+                secPtr++;
+
+            if (set.contains(ch)) {
+                firstPtr++;
+                secPtr++;
+            }
+
+            set.add(ch);
+        }
+        return secPtr - firstPtr;
+    }
+    
 }
