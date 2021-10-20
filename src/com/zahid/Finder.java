@@ -97,10 +97,14 @@ public class Finder {
 
             var current = String.valueOf(ch);
 
-            if (subStr.contains(current))
-                subStr = "";
-            
-            subStr = subStr.concat(String.valueOf(ch));
+            if (subStr.contains(current)) {
+                var currentIndex = subStr.indexOf(ch);
+                subStr = subStr.substring(currentIndex + 1);
+            }
+
+            subStr = subStr + current;
+
+            System.out.println(subStr);
 
             if (maxLength < subStr.length()) {
                 longestSubString = subStr;
