@@ -97,9 +97,9 @@ public class Finder {
 
             var current = String.valueOf(ch);
 
-            if (subStr.contains(current)) {
+            if (subStr.contains(current))
                 subStr = "";
-            }
+
 
             subStr = subStr.concat(String.valueOf(ch));
 
