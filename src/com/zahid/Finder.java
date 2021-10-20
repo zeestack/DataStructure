@@ -88,24 +88,30 @@ public class Finder {
 
         if (str == null) throw new IllegalArgumentException();
 
-        int firstPtr = 0;
-        int secPtr = 0;
+        String subStr = "";
+        String longestSubString = "";
 
-        var set = new HashSet<Character>();
+        int maxLength = 0;
 
         for (char ch : str.toCharArray()) {
 
-            if (!set.contains(ch))
-                secPtr++;
+            var current = String.valueOf(ch);
 
-            if (set.contains(ch)) {
-                firstPtr++;
-                secPtr++;
+            if (subStr.contains(current)) {
+                subStr = "";
             }
 
-            set.add(ch);
+            subStr = subStr.concat(String.valueOf(ch));
+
+            if (maxLength < subStr.length()) {
+                longestSubString = subStr;
+                maxLength = longestSubString.length();
+            }
+
         }
-        return secPtr - firstPtr;
+
+        System.out.println("Longest Sub-String: " + longestSubString);
+        return maxLength;
     }
-    
+
 }

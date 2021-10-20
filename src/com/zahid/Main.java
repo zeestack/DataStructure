@@ -12,7 +12,7 @@ public class Main {
 
         var finder = new Finder();
 
-        System.out.println(finder.getLongestNonRepeatedStringLength("abc"));
+        System.out.println(finder.getLongestNonRepeatedStringLength("abcdefabghijkabcdefpqrstuvwxbghijk"));
 
     }
 
