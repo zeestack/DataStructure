@@ -99,8 +99,7 @@ public class Finder {
 
             if (subStr.contains(current))
                 subStr = "";
-
-
+            
             subStr = subStr.concat(String.valueOf(ch));
 
             if (maxLength < subStr.length()) {
