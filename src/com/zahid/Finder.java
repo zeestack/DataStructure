@@ -104,8 +104,6 @@ public class Finder {
 
             subStr = subStr + current;
 
-            System.out.println(subStr);
-
             if (maxLength < subStr.length()) {
                 longestSubString = subStr;
                 maxLength = longestSubString.length();
